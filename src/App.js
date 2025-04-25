@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from './components/Login';
-import Registro from './components/Registeregister';
-import UsuariosList from './components/UsuariosListsuariosList';
+import Registro from './components/Register';
+import UsuariosList from './components/UsuariosList';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css'; // Asegúrate de que este archivo contenga las clases definidas
 
@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* Ruta protegida para UsuariosList, sin encabezado */}
+          {/* Ruta protegida para UsuariosList */}
           <Route
             path="/usuarios"
             element={
@@ -20,7 +20,16 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* Rutas con encabezado */}
+          {/* Rutas sin encabezado */}
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/register"
+            element={<Registro />}
+          />
+          {/* Rutas con encabezado para login y registro */}
           <Route
             path="*"
             element={
